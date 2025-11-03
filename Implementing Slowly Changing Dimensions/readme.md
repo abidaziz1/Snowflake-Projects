@@ -149,21 +149,8 @@ Implementing-SCD-Snowflake/
 │   │   └── Faker.ipynb           # Data generation notebook
 │   └── sql/
 │       ├── scd_type-1.sql        # SCD Type 1 implementation
-│       └── scd_type-2.sql        # SCD Type 2 implementation
-│
-├── installation/
-│   └── Presentation.ipynb         # Installation commands and guide
-│
-├── docs/
-│   ├── images/                    # Architecture diagrams and screenshots
-│   ├── SCD_TYPE_1.md             # SCD Type 1 documentation
-│   ├── SCD_TYPE_2.md             # SCD Type 2 documentation
-│   └── TROUBLESHOOTING.md        # Common issues and solutions
-│
-└── scripts/
-    ├── setup_ec2.sh              # EC2 setup automation script
-    ├── docker_setup.sh           # Docker installation script
-    └── snowflake_setup.sql       # Snowflake initial setup
+│       └── scd_type-2.sql       # SCD Type 2 implementation
+
 ```
 
 ## 🚀 Installation & Setup
@@ -429,7 +416,6 @@ LIMIT 10;
 - Check stream has not been consumed
 - Refresh stream if needed
 
-For detailed troubleshooting, see [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)
 
 ## 🤝 Contributing
 
