@@ -1,0 +1,98 @@
+# Snowflake specific
+*.log
+*.snowsql
+config
+.snowsql/
+snowsql_rt.log*
+
+# Credentials and sensitive data
+*.pem
+*.p8
+*.key
+*credentials*
+*password*
+.env
+.env.*
+
+# SnowSQL history
+.snowsql_history
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Data files (add specific patterns as needed)
+*.csv
+*.parquet
+*.json
+*.xml
+# Uncomment if you want to exclude data directories
+# data/
+# sample_data/
+
+# Compiled files
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.log
+*.sql.log
+*.sqlite
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node modules (if using Node.js tools)
+node_modules/
+npm-debug.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
