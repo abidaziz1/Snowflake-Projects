@@ -1,5 +1,4 @@
 # Snowflake specific
-*.log
 *.snowsql
 config
 .snowsql/
@@ -46,7 +45,6 @@ env/
 *.swp
 *.swo
 *~
-.DS_Store
 
 # Data files (add specific patterns as needed)
 *.csv
