@@ -1,1 +1,0 @@
-https://airflow.apache.org/docs/apache-airflow/1.10.8/howto/connection/aws.html
