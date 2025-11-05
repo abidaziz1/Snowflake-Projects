@@ -1,0 +1,57 @@
+Use test_db;
+
+CREATE TABLE TESLA_DATA (
+  Date date,
+  Open_value double,
+  High_value double,
+  Low_value double,
+  Close_value  double,
+  Adj_Close double,
+  volume bigint
+  );
+
+SELECT * FROM TESLA_DATA;
+
+GRANT CREATE INTEGRATION on account to role sysadmin;
+
+--Create Storage Integration
+
+CREATE or replace STORAGE INTEGRATION S3_INTEGRATION_SYSADMIN
+  TYPE = EXTERNAL_STAGE
+  STORAGE_PROVIDER = S3
+  STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::191015975005:role/Testsnowflakerole'
+  ENABLED = TRUE
+  STORAGE_ALLOWED_LOCATIONS = ('s3://snowflakecomputingpro/Input/');
+  
+--Describe Integration to fetch ARN and External ID
+
+DESC INTEGRATION S3_INTEGRATION_SYSADMIN;
+
+--Create Stage with Storage INTEGRATION
+
+CREATE STAGE TESLA_DATA_STAGE_SYSADMIN
+  URL='s3://snowflakecomputingpro/Input/'
+  STORAGE_INTEGRATION = S3_INTEGRATION_SYSADMIN;
+  FILE_FORMAT=CSV_FORMAT;
+
+list @TESLA_DATA_STAGE_SYSADMIN;
+  
+  
+--Load data into table from Stage
+COPY INTO TESLA_DATA
+  FROM @TESLA_DATA_STAGE_SYSADMIN
+  PATTERN='.*.csv'; 
+
+
+create or replace pipe tesla_pipe_test 
+auto_ingest=true 
+as
+copy into TESLA_DATA
+from @TESLA_DATA_STAGE_SYSADMIN
+file_format = CSV_FORMAT;
+
+show pipes;
+
+
+
+

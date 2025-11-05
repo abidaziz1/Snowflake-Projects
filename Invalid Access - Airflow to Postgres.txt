@@ -1,0 +1,27 @@
+/////These commands are necessary only when an error is faced when initializing PostgreSQL Database using airflow.
+
+
+
+------If you face this error -  Permission denied for schema public, then you need to run these commands in the PostgreSQL terminal to give Airflow huge access------------------------------
+
+
+sudo -u postgres psql
+
+\l
+
+-- Switch to the airflow database
+\c airflow;
+
+-- Grant full privileges on the public schema
+GRANT ALL PRIVILEGES ON SCHEMA public TO airflow;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO airflow;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO airflow;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON FUNCTIONS TO airflow;
+
+\q
+
+
+airflow db init
+airflow webserver &
+airflow scheduler &
+
